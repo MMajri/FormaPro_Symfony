@@ -17,8 +17,12 @@ L’objectif est de proposer une base fonctionnelle, simple et extensible, pour 
 
 ## 🛠️ Stack technique
 
-- PHP 8.3+
-- Symfony 7
+## Requirements
+
+- PHP >= 8.2
+- Symfony ^7.2
+- Composer >= 2.5
+- MySQL 8.0
 - Twig
 - Composer
 - Doctrine ORM
@@ -34,7 +38,27 @@ git clone git@github.com:MMajri/FormaPro_Symfony.git
 cd FormaPro_Symfony
 composer install
 symfony serve
-```
+```## 🚀 Installation rapide
+
+```bash
+git clone git@github.com:MMajri/FormaPro_Symfony.git
+cd FormaPro_Symfony
+
+# Installer les dépendances
+composer install
+
+# Copier et personnaliser les variables d’environnement
+cp .env .env.local
+# Modifier .env.local si nécessaire (ex: DATABASE_URL)
+
+# Créer la base de données
+php bin/console doctrine:database:create
+
+# Appliquer les migrations
+php bin/console doctrine:migrations:migrate
+
+# Lancer le serveur local
+symfony server:start
 
 ---
 

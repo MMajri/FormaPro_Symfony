@@ -1,164 +1,178 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Bienvenue sur FormaPro.fr{% endblock %}
 
 {% block body %}
-        <section class="py-5 text-center container">
-            <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Album example</h1>
-                <p class="lead text-body-secondary">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-                <p>
-                <button type="button" class="btn btn-danger">Danger</button>
-                <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-                </p>
-            </div>
-            </div>
-        </section>
+		<section class="py-5 text-center container">
+			<div class="row py-lg-5">
+			<div class="col-lg-6 col-md-8 mx-auto">
+				<h1 class="fw-light">FormaPro</h1>
+				<p class="lead text-body-secondary">Bienvenue sur le site de FormaPro, votre partenaire pour la formation en ligne.</p>
+				<button type="button" class="btn btn-danger">Danger</button>
+				<a href="#" class="btn btn-primary my-2">Voir les formations</a>
+				<a href="#" class="btn btn-secondary my-2">En savoir plus</a>
+				</p>
+			</div>
+			</div>
+		</section>
 
-        <div class="album py-5 bg-body-tertiary">
-            <div class="container">
+		<div class="album py-5 bg-body-tertiary">
+			<div class="container">
+			<h2>Nos formations :</h2>
+			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+				<!-- Formation Midjourney -->
+				<div class="col">
+				<div class="card shadow-sm">
+					<img src="{{ asset('assets/img/midjourney.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
+					<div class="card-body">
+					<p class="card-text">Apprenez à créer des images avec Midjourney</p>
+					<div class="d-flex justify-content-between align-items-center">
+						<div class="btn-group">
+						<button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+						<button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
+						</div>
+						<small class="text-body-secondary">12 h</small>
+					</div>
+					</div>
+				</div>
+				</div>
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <div class="col">
-                <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                    <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                        </div>
-                        <small class="text-body-secondary">9 mins</small>
-                    </div>
-                    </div>
-                </div>
-                </div>
-                <div class="col">
-                <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                    <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                        </div>
-                        <small class="text-body-secondary">9 mins</small>
-                    </div>
-                    </div>
-                </div>
-                </div>
-                <div class="col">
-                <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                    <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                        </div>
-                        <small class="text-body-secondary">9 mins</small>
-                    </div>
-                    </div>
-                </div>
-                </div>
+				<!-- Formation Stable Diffusion -->
+				<div class="col">
+				<div class="card shadow-sm">
+					<img src="{{ asset('assets/img/sd.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
+					<div class="card-body">
+					<p class="card-text">Maîtrisez Stable Diffusion pour la génération d'images</p>
+					<div class="d-flex justify-content-between align-items-center">
+						<div class="btn-group">
+						<button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+						<button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
+						</div>
+						<small class="text-body-secondary">15 h</small>
+					</div>
+					</div>
+				</div>
+				</div>
 
-                <div class="col">
-                <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                    <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                        </div>
-                        <small class="text-body-secondary">9 mins</small>
-                    </div>
-                    </div>
-                </div>
-                </div>
-                <div class="col">
-                <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                    <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                        </div>
-                        <small class="text-body-secondary">9 mins</small>
-                    </div>
-                    </div>
-                </div>
-                </div>
-                <div class="col">
-                <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                    <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                        </div>
-                        <small class="text-body-secondary">9 mins</small>
-                    </div>
-                    </div>
-                </div>
-                </div>
+				<!-- Formation Unity -->
+				<div class="col">
+				<div class="card shadow-sm">
+					<img src="{{ asset('assets/img/unity.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
+					<div class="card-body">
+					<p class="card-text">Développez vos jeux avec Unity</p>
+					<div class="d-flex justify-content-between align-items-center">
+						<div class="btn-group">
+						<button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+						<button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
+						</div>
+						<small class="text-body-secondary">20 h</small>
+					</div>
+					</div>
+				</div>
+				</div>
 
-                <div class="col">
-                <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                    <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                        </div>
-                        <small class="text-body-secondary">9 mins</small>
-                    </div>
-                    </div>
-                </div>
-                </div>
-                <div class="col">
-                <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                    <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                        </div>
-                        <small class="text-body-secondary">9 mins</small>
-                    </div>
-                    </div>
-                </div>
-                </div>
-                <div class="col">
-                <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                    <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                        </div>
-                        <small class="text-body-secondary">9 mins</small>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
+				<!-- Formation Unreal Engine -->
+				<div class="col">
+				<div class="card shadow-sm">
+					<img src="{{ asset('assets/img/ue.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
+					<div class="card-body">
+					<p class="card-text">Créez des jeux AAA avec Unreal Engine</p>
+					<div class="d-flex justify-content-between align-items-center">
+						<div class="btn-group">
+						<button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+						<button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
+						</div>
+						<small class="text-body-secondary">25 h</small>
+					</div>
+					</div>
+				</div>
+				</div>
+
+				<!-- Formation Blender -->
+				<div class="col">
+				<div class="card shadow-sm">
+					<img src="{{ asset('assets/img/blender.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
+					<div class="card-body">
+					<p class="card-text">Modélisation 3D avec Blender</p>
+					<div class="d-flex justify-content-between align-items-center">
+						<div class="btn-group">
+						<button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+						<button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
+						</div>
+						<small class="text-body-secondary">18 h</small>
+					</div>
+					</div>
+				</div>
+				</div>
+
+				<!-- Formation Electron -->
+				<div class="col">
+				<div class="card shadow-sm">
+					<img src="{{ asset('assets/img/electron.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
+					<div class="card-body">
+					<p class="card-text">Développez des applications desktop avec Electron</p>
+					<div class="d-flex justify-content-between align-items-center">
+						<div class="btn-group">
+						<button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+						<button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
+						</div>
+						<small class="text-body-secondary">16 h</small>
+					</div>
+					</div>
+				</div>
+				</div>
+
+				<!-- Formation Llama -->
+				<div class="col">
+				<div class="card shadow-sm">
+					<img src="{{ asset('assets/img/llama.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
+					<div class="card-body">
+					<p class="card-text">Découvrez l'IA avec Llama</p>
+					<div class="d-flex justify-content-between align-items-center">
+						<div class="btn-group">
+						<button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+						<button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
+						</div>
+						<small class="text-body-secondary">14 h</small>
+					</div>
+					</div>
+				</div>
+				</div>
+
+				<!-- Formation Bard -->
+				<div class="col">
+				<div class="card shadow-sm">
+					<img src="{{ asset('assets/img/bard.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
+					<div class="card-body">
+					<p class="card-text">Utilisez Google Bard pour vos projets</p>
+					<div class="d-flex justify-content-between align-items-center">
+						<div class="btn-group">
+						<button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+						<button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
+						</div>
+						<small class="text-body-secondary">10 h</small>
+					</div>
+					</div>
+				</div>
+				</div>
+
+				<!-- Formation Architecture -->
+				<div class="col">
+				<div class="card shadow-sm">
+					<img src="{{ asset('assets/img/archi.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
+					<div class="card-body">
+					<p class="card-text">Architecture logicielle avancée</p>
+					<div class="d-flex justify-content-between align-items-center">
+						<div class="btn-group">
+						<button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+						<button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
+						</div>
+						<small class="text-body-secondary">22 h</small>
+					</div>
+					</div>
+				</div>
+				</div>
+			</div>
+			</div>
+		</div>
 {% endblock %}

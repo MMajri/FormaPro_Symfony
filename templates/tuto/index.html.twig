@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TutoController!{% endblock %}
+
+{% block body %}
+<style>
+    .tuto-container{ margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+</style>
+
+<div class="tuto-container">
+	<h1>{{ name }}</h1>
+	<h2>{{ subtitle }}</h2>
+	<p>{{ description }}</p>
+</div>
+{% endblock %}
