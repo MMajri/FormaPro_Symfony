@@ -30,6 +30,9 @@ final class SigninController extends AbstractController
 		$user = $form->getData();
 		$user->setRoles(['ROLE_USER']);
 
+		// hashing the password
+		$user->setPassword(password_hash($user->getPassword(), PASSWORD_DEFAULT));
+
 		// Persisting data
 		$em->persist($user);
 		$em->flush();
