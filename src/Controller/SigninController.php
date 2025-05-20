@@ -9,11 +9,12 @@ use Symfony\Component\Routing\Attribute\Route;
 use App\Entity\User;
 use App\Form\SigninForm;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 final class SigninController extends AbstractController
 {
     #[Route('/signin', name: 'app_signin')]
-    public function index(Request $request, EntityManagerInterface $em): Response
+    public function index(Request $request, EntityManagerInterface $em, UserPasswordHasherInterface $passwordHasher): Response
     {
 		$user = new User();
 		$form = $this->createForm(SigninForm::class, $user);
@@ -31,7 +32,7 @@ final class SigninController extends AbstractController
 		$user->setRoles(['ROLE_USER']);
 
 		// hashing the password
-		$user->setPassword(password_hash($user->getPassword(), PASSWORD_DEFAULT));
+		$user->setPassword($passwordHasher->hashPassword($user, $user->getPassword()));
 
 		// Persisting data
 		$em->persist($user);
