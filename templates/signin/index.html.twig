@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SigninController!{% endblock %}
+
+{% block body %}
+<style>
+    .signin-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+</style>
+
+<div class="signin-wrapper">
+    <h1>S'inscrire</h1>
+
+	{{ form(form) }}
+</div>
+{% endblock %}
