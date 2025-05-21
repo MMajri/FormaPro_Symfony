@@ -45,7 +45,7 @@ composer install
 ```bash
 cp .env .env.local
 ```
-# Modifier .env.local si nécessaire (ex: DATABASE_URL)
+=> Modifier .env.local si nécessaire (ex: DATABASE_URL)
 
 # Créer la base de données
 ```bash
