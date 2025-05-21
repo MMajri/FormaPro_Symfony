@@ -23,20 +23,21 @@ final class SigninController extends AbstractController
 		$form->handleRequest($request);
 
 		// Checking if the form is submitted and valid
-		if (!$form->isSubmitted() || $form->isValid()){
-			throw $this->createNotFoundException('No form submitted or form is not valid');
+		if ($form->isSubmitted() && $form->isValid()){
+			// Retrieving data
+			$user = $form->getData();
+			$user->setRoles(['ROLE_USER']);
+
+			// hashing the password
+			$user->setPassword($passwordHasher->hashPassword($user, $user->getPassword()));
+
+			// Persisting data
+			$em->persist($user);
+			$em->flush();
+
+			// Redirecting to the login page if registration is successful
+			return $this->redirectToRoute('app_login');
 		}
-
-		// Retrieving data
-		$user = $form->getData();
-		$user->setRoles(['ROLE_USER']);
-
-		// hashing the password
-		$user->setPassword($passwordHasher->hashPassword($user, $user->getPassword()));
-
-		// Persisting data
-		$em->persist($user);
-		$em->flush();
 
 		return $this->render('signin/index.html.twig', [
 			'form' => $form->createView(),

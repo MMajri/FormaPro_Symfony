@@ -1,20 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello LoginController!{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<link href="{{ asset('assets/css/sign-in.css') }}" rel="stylesheet">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/Users/Tsuki/GitHub/Forma_Pro/FormaPro_Symfony/src/Controller/LoginController.php</code></li>
-        <li>Your template at <code>/Users/Tsuki/GitHub/Forma_Pro/FormaPro_Symfony/templates/login/index.html.twig</code></li>
-    </ul>
-</div>
+    <main class="form-signin w-100 m-auto">
+        <form action="{{ path('app_login') }}" method="post">
+            <h1 class="h3 mb-3 fw-normal">Se connecter</h1>
+            <img class="mb-4" src="{{ asset('assets/img/login.webp') }}" alt="icon connexion" width="100" height="100">
+            <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInput" name="_username" value="{{ last_username }}" placeholder="name@example.com">
+                <label for="floatingInput">Addresse email</label>
+            </div>
+            
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" name="_password" placeholder="Password">
+                <label for="floatingPassword">Mot de passe</label>
+            </div>
+            
+            <div class="form-check text-start my-3">
+                <input class="form-check-input" type="checkbox" value="remember-me" id="checkDefault">
+                <label class="form-check-label" for="checkDefault">
+                    Se souvenir de moi
+                </label>
+            </div>
+        {#
+			If you want to redirect to a specific page, you can add a hidden input field with the path
+			<input type="hidden" name="_target_path" value="/home">
+		#}
+            <button class="btn btn-primary w-100 py-2" type="submit">Connexion</button>
+        </form>
+    </main>
 {% endblock %}
