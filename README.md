@@ -36,30 +36,29 @@ L’objectif est de proposer une base fonctionnelle, simple et extensible, pour 
 ```bash
 git clone git@github.com:MMajri/FormaPro_Symfony.git
 cd FormaPro_Symfony
-composer install
-symfony serve
-```## 🚀 Installation rapide
-
-```bash
-git clone git@github.com:MMajri/FormaPro_Symfony.git
-cd FormaPro_Symfony
-
+```
 # Installer les dépendances
+```bash
 composer install
-
+```
 # Copier et personnaliser les variables d’environnement
+```bash
 cp .env .env.local
+```
 # Modifier .env.local si nécessaire (ex: DATABASE_URL)
 
 # Créer la base de données
-php bin/console doctrine:database:create
-
+```bash
+symfony console doctrine:database:create
+```
 # Appliquer les migrations
-php bin/console doctrine:migrations:migrate
-
+```bash
+symfony console doctrine:migrations:migrate
+```
 # Lancer le serveur local
+```bash
 symfony server:start
-
+```
 ---
 
 ## 👤 Auteur
