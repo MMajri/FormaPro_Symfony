@@ -138,6 +138,11 @@
 			<div class="row">
 				<div class="col-sm-8 col-md-7 py-4">
 				<h4>A propos</h4>
+				{% if app.user and app.user.email %}
+					<p class="text-body-secondary">Bonjour {{ app.user.email }}</p>
+				{% else %}
+					<p class="text-body-secondary">Bonjour, <a href="{{ path('app_login') }}">veuillez vous connecter</a></p>
+				{% endif %}
 				<p class="text-body-secondary">FormaPro est une plateforme de formation en ligne qui permet aux utilisateurs de suivre des cours et de progresser dans leur carrière.</p>
 				</div>
 				<div class="col-sm-4 offset-md-1 py-4">
