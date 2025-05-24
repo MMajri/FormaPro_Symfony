@@ -8,7 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\{Action, Actions, Crud, KeyValueStore};
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
-use EasyCorp\Bundle\EasyAdminBundle\Field\{IdField, EmailField, TextField, ArrayField};
+use EasyCorp\Bundle\EasyAdminBundle\Field\{IdField, EmailField, TextField, ChoiceField};
 use Symfony\Component\Form\Extension\Core\Type\{PasswordType, RepeatedType};
 use Symfony\Component\Form\{FormBuilderInterface, FormEvent, FormEvents};
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -32,7 +32,13 @@ class UserCrudController extends AbstractCrudController {
         $fields = [
             IdField::new('id')->hideOnForm(),
             EmailField::new('email'),
-            ArrayField::new('roles', 'Role')
+            ChoiceField::new('roles')
+                ->setChoices([
+                    'User' => 'ROLE_USER',
+                    'Admin' => 'ROLE_ADMIN'
+                ])
+                ->allowMultipleChoices()
+                ->renderAsBadges()
         ];
  
         $password = TextField::new('password')
