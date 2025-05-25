@@ -19,3 +19,7 @@
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
 .env
+
+### Images ###
+/public/uploads/images/
+/public/assets/img/

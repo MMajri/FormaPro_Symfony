@@ -25,7 +25,7 @@ class TutoCrudController extends AbstractCrudController
 				->setBasePath('uploads/images/')
 				->setUploadDir('public/uploads/images/')
 				->setUploadedFileNamePattern('[randomhash].[extension]')
-				->setRequired(true),
+				->setRequired(false),
         ];
 
 		$name = TextField::new('name', 'Titre')
