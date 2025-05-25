@@ -31,8 +31,13 @@
 								<div class="btn-group">
 
 									<a href="/tuto/{{ tuto.id }}">
-									<button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
-									<button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
+									<button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+									</a>
+									{% if app.user and "ROLE_ADMIN" in app.user.roles %}
+										<a href="/admin/tuto/{{ tuto.id }}">
+										<button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
+										</a>
+									{% endif %}
 								</div>
 								<small class="text-body-secondary">#{{ tuto.id }}</small>
 							</div>
