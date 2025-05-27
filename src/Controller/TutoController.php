@@ -11,9 +11,20 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TutoController extends AbstractController
 {
+	#[Route('/tuto/{slug}', name: 'app_tuto_details')]
+    public function details(TutoRepository $tutoRepository, string $slug): Response {
+		$tuto = $tutoRepository->findOneBySlug($slug);
+
+		if (!$tuto)
+			return $this->redirectToRoute('app_home');
+
+        return $this->render('tuto/details.html.twig', [
+			'tuto' => $tuto,
+        ]);
+    }
+
     #[Route('/tuto/{id}', name: 'app_tuto')]
-    public function index(TutoRepository $tutoRepository, int $id): Response
-    {
+    public function index(TutoRepository $tutoRepository, int $id): Response {
 //$tuto = $entityManager->getRepository(Tuto::class)->find($id);
 		$tuto = $tutoRepository->findOneBySomeField($id);
 

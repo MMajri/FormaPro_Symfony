@@ -30,7 +30,7 @@
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="btn-group">
 
-									<a href="/tuto/{{ tuto.id }}">
+									<a href="{{ path('app_tuto_details', {'slug': tuto.slug}) }}">
 									<button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
 									</a>
 									{% if app.user and "ROLE_ADMIN" in app.user.roles %}

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ tuto.name }}{% endblock %}
+
+{% block body %}
+	<section class="py-5 text-center container">
+		<div class="row py-lg-5">
+			<div class="col-lg-6 col-md-8 mx-auto">
+				<h1 class="fw-light">{{ tuto.name }}</h1>
+				<img src="/uploads/images/{{ tuto.image }}" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
+				<p class="lead text-body-secondary">{{ tuto.subtitle }}</p>
+				<p class="lead text-body-secondary">{{ tuto.description|raw }}</p>
+				<p>
+					<a href="{{ tuto.link }}" target="_blank" class="btn btn-primary my-2">Acheter la formation</a>	
+					<a href="#" target="_blank" class="btn btn-secondary my-2">En savoir plus</a>
+				</p>
+				<h2>Trailer</h2>
+				<div class="text-center iframe-container">
+					<iframe 
+						width="560" 
+						height="315" 
+						{# {{ tuto.video | replace({'watch?v=': 'embed/'}) }} #}
+						src="https://www.youtube.com/embed/{{ tuto.video }}"
+						title="Trailer {{ tuto.name }}" 
+						frameborder="0" 
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+						referrerpolicy="strict-origin-when-cross-origin" 
+						allowfullscreen>
+					</iframe>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
