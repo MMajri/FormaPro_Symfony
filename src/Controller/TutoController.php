@@ -9,8 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class TutoController extends AbstractController
-{
+class TutoController extends AbstractController {
 	#[Route('/tuto/{slug}', name: 'app_tuto_details')]
     public function details(TutoRepository $tutoRepository, string $slug): Response {
 		$tuto = $tutoRepository->findOneBySlug($slug);
@@ -44,8 +43,7 @@ class TutoController extends AbstractController
     }
 
 	#[Route('/add-tuto', name: 'create_tuto')]
-	public function createTuto(EntityManagerInterface $entityManager): Response
-    {
+	public function createTuto(EntityManagerInterface $entityManager): Response {
         $tuto = new Tuto();
         $tuto->setName('Unity');
         $tuto->setSlug('tuto unity');
