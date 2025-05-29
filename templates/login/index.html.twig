@@ -3,7 +3,8 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-<div class="signin-wrapper">
+<div class="login-box">
+    <div class="login-wrapper container py-4">
     <div class="card p-4 shadow-sm border-0 rounded-4 bg-white">
         <div class="text-center mb-3">
             <img class="mb-2" src="{{ asset('assets/img/login.webp') }}" alt="icon connexion" width="70" height="70">
@@ -32,8 +33,9 @@
             </div>
         </form>
         <div class="text-center mt-3">
-            <a href="{{ path('app_signin') }}" class="inscription-link">Pas encore de compte ? Inscrivez-vous</a>
+            <a href="{{ path('app_signup') }}" class="inscription-link">Pas encore de compte ? Inscrivez-vous</a>
         </div>
+    </div>
     </div>
 </div>
 {% endblock %}

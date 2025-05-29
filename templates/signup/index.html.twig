@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<div class="signup-box">
+    <div class="signup-wrapper container py-4">
+        <div class="card p-4 shadow-sm border-0 rounded-4 bg-white">
+            <div class="text-center mb-3">
+                <img class="mb-2" src="{{ asset('assets/img/signup.webp') }}" alt="icon inscription" width="70" height="70">
+                <h1 class="h3 mb-3 fw-bold" style="color:#23272f;">Créer un compte</h1>
+            </div>
+            {{ form_start(form, {'attr': {'class': 'needs-validation'}}) }}
+                <div class="mb-3">
+                    {{ form_label(form.firstName) }}
+                    {{ form_widget(form.firstName) }}
+                    {{ form_errors(form.firstName) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.lastName) }}
+                    {{ form_widget(form.lastName) }}
+                    {{ form_errors(form.lastName) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email) }}
+                    {{ form_errors(form.email) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.phone) }}
+                    {{ form_widget(form.phone) }}
+                    {{ form_errors(form.phone) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.birthDate) }}
+                    {{ form_widget(form.birthDate) }}
+                    {{ form_errors(form.birthDate) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.gender) }}
+                    {{ form_widget(form.gender) }}
+                    {{ form_errors(form.gender) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.address) }}
+                    {{ form_widget(form.address) }}
+                    {{ form_errors(form.address) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.avatar) }}
+                    {{ form_widget(form.avatar) }}
+                    {{ form_errors(form.avatar) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.password) }}
+                    {{ form_widget(form.password) }}
+                    {{ form_errors(form.password) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(form.confirm_password) }}
+                    {{ form_widget(form.confirm_password) }}
+                    {{ form_errors(form.confirm_password) }}
+                </div>
+                <div class="form-check mb-3">
+                    {{ form_widget(form.acceptedTerms) }}
+                    {{ form_label(form.acceptedTerms) }}
+                    {{ form_errors(form.acceptedTerms) }}
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">S'inscrire</button>
+                </div>
+            {{ form_end(form, {'render_rest': false}) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
