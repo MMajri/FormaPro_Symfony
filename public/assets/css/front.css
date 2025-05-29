@@ -19,7 +19,6 @@
     --transition: all 0.3s ease;
     --accent-color: #0d6efd;
     --accent-gradient: linear-gradient(90deg, #0d6efd 60%, #4f8cff 100%);
-    --background-color: #f8f9fa;
     --background-gradient: linear-gradient(120deg, #f8f9fa 60%, #e9f0fb 100%);
     --card-radius: 1.5rem;
     --card-shadow: 0 12px 40px 0 rgba(13, 110, 253, 0.10), 0 1.5px 8px 0 #0001;
@@ -36,7 +35,7 @@
    ===================== */
 body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background: linear-gradient(120deg, #f8f9fa 60%, #e9f0fb 100%);
+    background: var(--background-gradient);
     color: var(--dark-color);
     line-height: 1.5;
 }
@@ -50,10 +49,10 @@ body {
 }
 
 /* =====================
-   BOX WRAPPER (SIGNUP)
+   SIGNUP FORM LAYOUT
    ===================== */
 .signup-box {
-    max-width: 540px;
+    max-width: 85%;
     margin: 4rem auto 2.5rem auto;
     padding: 0 1.2rem;
     display: flex;
@@ -61,12 +60,10 @@ body {
     align-items: center;
     justify-content: center;
 }
-
 .signup-wrapper {
     width: 100%;
     padding: 0;
 }
-
 .signup-wrapper .card {
     padding: 2.5rem 2rem 2rem 2rem !important;
     border-radius: 1.5rem !important;
@@ -103,15 +100,6 @@ body {
 }
 .signup-wrapper .row-cols-md-2 > .col-md-6 {
     padding-left: 1rem !important;
-    padding-right: 1rem !important;
-}
-.signup-wrapper .border-md-end {
-    border-right: 1.5px solid var(--input-border) !important;
-}
-.signup-wrapper .ps-md-4 {
-    padding-left: 1rem !important;
-}
-.signup-wrapper .pe-md-4 {
     padding-right: 1rem !important;
 }
 .signup-wrapper .form-label {
@@ -180,7 +168,7 @@ body {
 }
 
 /* =====================
-   CARD COMPONENT
+   CARD COMPONENT (GÉNÉRIQUE)
    ===================== */
 .card {
     border-radius: var(--card-radius) !important;
@@ -195,7 +183,7 @@ body {
 }
 
 /* =====================
-   FORM STYLES
+   FORM STYLES (GÉNÉRIQUE)
    ===================== */
 .form-label {
     font-weight: 500;
@@ -227,7 +215,7 @@ body {
 }
 
 /* =====================
-   SECTION TITLES
+   SECTION TITLES (GÉNÉRIQUE)
    ===================== */
 .form-section-title {
     font-size: 1.13rem !important;
@@ -243,26 +231,13 @@ body {
 }
 
 /* =====================
-   BUTTONS
+   BUTTONS (GÉNÉRIQUE)
    ===================== */
 .btn {
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
     font-weight: 500;
     transition: all 0.2s;
-}
-.btn-primary {
-    background: var(--accent-gradient) !important;
-    border: none !important;
-    color: #fff !important;
-    font-weight: 700 !important;
-    width: 100% !important;
-    padding: 1.1rem !important;
-    font-size: 1.18rem !important;
-    border-radius: 0.7rem !important;
-    letter-spacing: 0.5px !important;
-    box-shadow: 0 2px 8px #0d6efd22 !important;
-    margin-top: 0.5rem !important;
 }
 .btn-primary:hover, .btn-primary:focus {
     background: linear-gradient(90deg, #0a58ca 60%, #2563eb 100%) !important;
@@ -293,20 +268,6 @@ body {
 }
 
 /* =====================
-   PRODUCT PAGE
-   ===================== */
-.product-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-.product-description {
-    line-height: 1.6;
-    color: var(--secondary-color);
-}
-
-/* =====================
    RESPONSIVE
    ===================== */
 @media (max-width: 991.98px) {
@@ -314,33 +275,7 @@ body {
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
-    .border-md-end {
-        border-right: none !important;
-        border-bottom: 1.5px solid var(--input-border) !important;
-        margin-bottom: 2rem !important;
-        padding-bottom: 2rem !important;
-    }
-    .ps-md-4 {
-        padding-left: 0 !important;
-    }
-    .pe-md-4 {
-        padding-right: 0 !important;
-    }
 }
-@media (max-width: 767.98px) {
-    .signup-box {
-        margin: 1.2em auto;
-        padding: 0 0.2em;
-    }
-    .signup-wrapper .card {
-        padding: 1.2rem 0.5rem 1.5rem 0.5rem !important;
-    }
-    .form-section-title {
-        font-size: 1.05rem !important;
-        padding-left: 0.4rem;
-    }
-}
-
 /* --- Tuto Details --- */
 .product-main-wrapper {
     max-width: 900px;
@@ -632,23 +567,6 @@ body {
         padding-left: 0.4rem;
     }
 }
-
-.signup-box {
-    max-width: 600px;
-    margin: 3.5rem auto 2.5rem auto;
-    padding: 0 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-@media (max-width: 700px) {
-    .signup-box {
-        max-width: 100%;
-        margin: 1.2rem auto;
-        padding: 0 0.2rem;
-    }
-} 
 
 .form-signup {
 	max-width: 330px;

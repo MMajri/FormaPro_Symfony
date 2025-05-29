@@ -11,63 +11,37 @@
                 <h1 class="h3 mb-3 fw-bold" style="color:#23272f;">Créer un compte</h1>
             </div>
             {{ form_start(form, {'attr': {'class': 'needs-validation'}}) }}
-                <div class="mb-3">
-                    {{ form_label(form.firstName) }}
-                    {{ form_widget(form.firstName) }}
-                    {{ form_errors(form.firstName) }}
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="form-section-title">Informations personnelles</div>
+                        <div class="mb-3">{{ form_label(form.firstName) }}{{ form_widget(form.firstName) }}{{ form_errors(form.firstName) }}</div>
+                        <div class="mb-3">{{ form_label(form.lastName) }}{{ form_widget(form.lastName) }}{{ form_errors(form.lastName) }}</div>
+                        <div class="mb-3">{{ form_label(form.email) }}{{ form_widget(form.email) }}{{ form_errors(form.email) }}</div>
+                        <div class="mb-3">{{ form_label(form.phone) }}{{ form_widget(form.phone) }}{{ form_errors(form.phone) }}</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-section-title">Informations complémentaires</div>
+                        <div class="mb-3">{{ form_label(form.birthDate) }}{{ form_widget(form.birthDate) }}{{ form_errors(form.birthDate) }}</div>
+                        <div class="mb-3">{{ form_label(form.gender) }}{{ form_widget(form.gender) }}{{ form_errors(form.gender) }}</div>
+                        <div class="mb-3">{{ form_label(form.address) }}{{ form_widget(form.address) }}{{ form_errors(form.address) }}</div>
+                        <div class="mb-3">{{ form_label(form.avatar) }}{{ form_widget(form.avatar) }}{{ form_errors(form.avatar) }}</div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    {{ form_label(form.lastName) }}
-                    {{ form_widget(form.lastName) }}
-                    {{ form_errors(form.lastName) }}
+                <hr class="my-4">
+                <div class="form-section-title">Sécurité</div>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="mb-3">{{ form_label(form.password) }}{{ form_widget(form.password) }}{{ form_errors(form.password) }}</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">{{ form_label(form.confirm_password) }}{{ form_widget(form.confirm_password) }}{{ form_errors(form.confirm_password) }}</div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    {{ form_label(form.email) }}
-                    {{ form_widget(form.email) }}
-                    {{ form_errors(form.email) }}
+                <div class="form-check my-3">
+                    {{ form_widget(form.acceptedTerms) }} {{ form_label(form.acceptedTerms) }} {{ form_errors(form.acceptedTerms) }}
                 </div>
-                <div class="mb-3">
-                    {{ form_label(form.phone) }}
-                    {{ form_widget(form.phone) }}
-                    {{ form_errors(form.phone) }}
-                </div>
-                <div class="mb-3">
-                    {{ form_label(form.birthDate) }}
-                    {{ form_widget(form.birthDate) }}
-                    {{ form_errors(form.birthDate) }}
-                </div>
-                <div class="mb-3">
-                    {{ form_label(form.gender) }}
-                    {{ form_widget(form.gender) }}
-                    {{ form_errors(form.gender) }}
-                </div>
-                <div class="mb-3">
-                    {{ form_label(form.address) }}
-                    {{ form_widget(form.address) }}
-                    {{ form_errors(form.address) }}
-                </div>
-                <div class="mb-3">
-                    {{ form_label(form.avatar) }}
-                    {{ form_widget(form.avatar) }}
-                    {{ form_errors(form.avatar) }}
-                </div>
-                <div class="mb-3">
-                    {{ form_label(form.password) }}
-                    {{ form_widget(form.password) }}
-                    {{ form_errors(form.password) }}
-                </div>
-                <div class="mb-3">
-                    {{ form_label(form.confirm_password) }}
-                    {{ form_widget(form.confirm_password) }}
-                    {{ form_errors(form.confirm_password) }}
-                </div>
-                <div class="form-check mb-3">
-                    {{ form_widget(form.acceptedTerms) }}
-                    {{ form_label(form.acceptedTerms) }}
-                    {{ form_errors(form.acceptedTerms) }}
-                </div>
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-primary">S'inscrire</button>
+                <div class="d-flex justify-content-center mt-4">
+                    <button type="submit" class="btn btn-primary px-5 py-2">S'inscrire</button>
                 </div>
             {{ form_end(form, {'render_rest': false}) }}
         </div>
