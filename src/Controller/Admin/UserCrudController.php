@@ -8,7 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\{Action, Actions, Crud, KeyValueStore};
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
-use EasyCorp\Bundle\EasyAdminBundle\Field\{IdField, EmailField, TextField, ChoiceField};
+use EasyCorp\Bundle\EasyAdminBundle\Field\{IdField, EmailField, TextField, ChoiceField, DateField, BooleanField, ImageField};
 use Symfony\Component\Form\Extension\Core\Type\{PasswordType, RepeatedType};
 use Symfony\Component\Form\{FormBuilderInterface, FormEvent, FormEvents};
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -29,18 +29,77 @@ class UserCrudController extends AbstractCrudController {
     }
  
     public function configureFields(string $pageName): iterable {
-        $fields = [
-            IdField::new('id')->hideOnForm(),
-            EmailField::new('email'),
-            ChoiceField::new('roles')
-                ->setChoices([
-                    'User' => 'ROLE_USER',
-                    'Admin' => 'ROLE_ADMIN'
-                ])
-                ->allowMultipleChoices()
-                ->renderAsBadges()
-        ];
- 
+        $fields = [];
+
+        $fields[] = IdField::new('id')->hideOnForm();
+
+        $email = EmailField::new('email', 'Email')
+            ->setFormTypeOption('attr', [
+                'placeholder' => 'Adresse email',
+                'maxlength' => 180,
+            ]);
+        $fields[] = $email;
+
+        $firstName = TextField::new('firstName', 'Prénom')
+            ->setFormTypeOption('attr', [
+                'placeholder' => 'Prénom',
+                'maxlength' => 100,
+            ]);
+        $fields[] = $firstName;
+
+        $lastName = TextField::new('lastName', 'Nom')
+            ->setFormTypeOption('attr', [
+                'placeholder' => 'Nom',
+                'maxlength' => 100,
+            ]);
+        $fields[] = $lastName;
+
+        $phone = TextField::new('phone', 'Téléphone')
+            ->setFormTypeOption('attr', [
+                'placeholder' => 'Numéro de téléphone',
+                'maxlength' => 20,
+            ]);
+        $fields[] = $phone;
+
+        $birthDate = DateField::new('birthDate', 'Date de naissance');
+        $fields[] = $birthDate;
+
+        $address = TextField::new('address', 'Adresse')
+            ->setFormTypeOption('attr', [
+                'placeholder' => 'Adresse',
+                'maxlength' => 255,
+            ]);
+        $fields[] = $address;
+
+        $gender = ChoiceField::new('gender', 'Genre')
+            ->setChoices([
+                'Homme' => 'homme',
+                'Femme' => 'femme',
+                'Autre' => 'autre',
+                'Préférer ne pas dire' => 'na',
+            ])
+            ->setFormTypeOption('placeholder', 'Sélectionner');
+        $fields[] = $gender;
+
+        $avatar = ImageField::new('avatar', 'Photo de profil (avatar)')
+            ->setBasePath('uploads/avatars/')
+            ->setUploadDir('public/uploads/avatars/')
+            ->setUploadedFileNamePattern('[randomhash].[extension]')
+            ->setRequired(false);
+        $fields[] = $avatar;
+
+        $acceptedTerms = BooleanField::new('acceptedTerms', 'CGU acceptées');
+        $fields[] = $acceptedTerms;
+
+        $roles = ChoiceField::new('roles', 'Rôles')
+            ->setChoices([
+                'User' => 'ROLE_USER',
+                'Admin' => 'ROLE_ADMIN'
+            ])
+            ->allowMultipleChoices()
+            ->renderAsBadges();
+        $fields[] = $roles;
+
         $password = TextField::new('password')
             ->setFormType(RepeatedType::class)
             ->setFormTypeOptions([
@@ -52,7 +111,7 @@ class UserCrudController extends AbstractCrudController {
             ->setRequired($pageName === Crud::PAGE_NEW)
             ->onlyOnForms();
         $fields[] = $password;
- 
+
         return $fields;
     }
  
