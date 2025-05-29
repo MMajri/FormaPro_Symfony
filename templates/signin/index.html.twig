@@ -3,115 +3,44 @@
 {% block title %}Inscription | FormaPro{% endblock %}
 
 {% block body %}
-<style>
-    .signin-wrapper {
-        margin: 3em auto;
-        max-width: 900px;
-        width: 98%;
-    }
-    .signin-wrapper .card {
-        padding: 3rem 2.5rem 2.5rem 2.5rem;
-        border-radius: 1.5rem;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.10);
-        border: none;
-    }
-    .signin-wrapper .form-label {
-        font-size: 0.97rem;
-        color: #6c757d;
-        font-weight: 500;
-        margin-bottom: 0.2rem;
-    }
-    .signin-wrapper .form-group, .signin-wrapper .form-row, .signin-wrapper .form-control, .signin-wrapper .form-check {
-        margin-bottom: 1.3rem !important;
-    }
-    .signin-wrapper .form-control {
-        border-radius: 0.7rem;
-        font-size: 1.07rem;
-        padding: 0.7rem 1rem;
-    }
-    .signin-wrapper .form-section-title {
-        font-size: 1.13rem;
-        font-weight: 700;
-        margin-bottom: 1.2rem;
-        margin-top: 0.5rem;
-        color: #0d6efd;
-        letter-spacing: 0.5px;
-    }
-    .signin-wrapper .avatar-upload {
-        margin-bottom: 1.3rem;
-    }
-    .signin-wrapper .row-cols-md-2 > .col-md-6 {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-    .signin-wrapper .text-center.mb-3 {
-        margin-bottom: 2.2rem !important;
-    }
-    .signin-wrapper .h3 {
-        margin-bottom: 1.2rem !important;
-    }
-    .signin-wrapper .form-check {
-        margin-bottom: 1.5rem !important;
-        margin-top: 0.5rem;
-    }
-    .signin-wrapper .btn-primary {
-        width: 100%;
-        padding: 1rem;
-        font-size: 1.15rem;
-        border-radius: 0.7rem;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        box-shadow: 0 2px 8px #0d6efd22;
-        border: none;
-        margin-top: 0.5rem;
-    }
-    @media (max-width: 767.98px) {
-        .signin-wrapper .row-cols-md-2 > .col-md-6 {
-            flex: 0 0 100%;
-            max-width: 100%;
-            padding-left: 0;
-            padding-right: 0;
-        }
-        .signin-wrapper .card {
-            padding: 1.2rem 0.5rem 1.5rem 0.5rem;
-        }
-    }
-</style>
-
-<div class="signin-wrapper">
-    <div class="card p-4 shadow-sm border-0 rounded-4 bg-white">
-        <div class="text-center mb-3">
-            <img class="mb-2" src="{{ asset('assets/img/signin.webp') }}" alt="icon inscription" width="70" height="70">
-            <h1 class="h3 mb-3 fw-bold" style="color:#23272f;">Créer un compte</h1>
-        </div>
-        {{ form_start(form) }}
-        <div class="row row-cols-1 row-cols-md-2 g-2">
-            <div class="col-md-6">
-                <div class="form-section-title">Informations personnelles</div>
-                {{ form_row(form.firstName) }}
-                {{ form_row(form.lastName) }}
-                {{ form_row(form.email) }}
-                {{ form_row(form.phone) }}
-                {{ form_row(form.birthDate) }}
+<div class="signup-box">
+    <div class="signin-wrapper">
+        <div class="card p-4 shadow-sm border-0 rounded-4 bg-white">
+            <div class="text-center mb-3">
+                <img class="mb-2" src="{{ asset('assets/img/signin.webp') }}" alt="icon inscription" width="70" height="70">
+                <h1 class="h3 mb-2 fw-bold" style="color:#23272f;">Créer un compte</h1>
+                <div class="text-muted mb-3" style="font-size:1.1rem;">Rejoignez-nous et accédez à toutes nos formations&nbsp;!</div>
             </div>
-            <div class="col-md-6">
-                <div class="form-section-title">Informations complémentaires</div>
-                {{ form_row(form.gender) }}
-                {{ form_row(form.address) }}
-                <div class="avatar-upload mt-2 mb-2">
-                    {{ form_row(form.avatar) }}
+            {{ form_start(form) }}
+            <div class="row row-cols-1 row-cols-md-2 g-4 align-items-stretch">
+                <div class="col-md-6 pe-md-4 border-md-end">
+                    <div class="form-section-title mb-2">Informations personnelles</div>
+                    {{ form_row(form.firstName) }}
+                    {{ form_row(form.lastName) }}
+                    {{ form_row(form.email) }}
+                    {{ form_row(form.phone) }}
+                    {{ form_row(form.birthDate) }}
                 </div>
-                {{ form_row(form.password) }}
-                {{ form_row(form.confirm_password) }}
+                <div class="col-md-6 ps-md-4 mt-4 mt-md-0">
+                    <div class="form-section-title mb-2">Informations complémentaires</div>
+                    {{ form_row(form.gender) }}
+                    {{ form_row(form.address) }}
+                    <div class="avatar-upload mt-2 mb-2">
+                        {{ form_row(form.avatar) }}
+                    </div>
+                    {{ form_row(form.password) }}
+                    {{ form_row(form.confirm_password) }}
+                </div>
             </div>
+            <hr class="my-4">
+            <div class="mt-2">
+                {{ form_row(form.acceptedTerms) }}
+            </div>
+            <div class="d-grid mt-3">
+                {{ form_row(form.submit) }}
+            </div>
+            {{ form_end(form) }}
         </div>
-        <div class="mt-2">
-            {{ form_row(form.acceptedTerms) }}
-        </div>
-        <div class="d-grid mt-3">
-            {{ form_row(form.submit) }}
-        </div>
-        {{ form_end(form) }}
     </div>
 </div>
 {% endblock %}
