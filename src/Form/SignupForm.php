@@ -111,12 +111,6 @@ class SignupForm extends AbstractType
                 'attr' => [
                     'class' => 'form-check-input'
                 ]
-            ])
-            ->add('submit', SubmitType::class, [
-                'label' => "S'inscrire",
-                'attr' => [
-                    'class' => 'btn btn-primary',
-                ],
             ]);
     }
 
@@ -124,6 +118,7 @@ class SignupForm extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'csrf_protection' => true
         ]);
     }
 }

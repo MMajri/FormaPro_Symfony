@@ -27,19 +27,27 @@ final class SignupController extends AbstractController
         $form = $this->createForm(SignupForm::class, $user);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $hashedPassword = $this->passwordHasher->hashPassword(
-                $user,
-                $form->get('password')->getData()
-            );
-            $user->setPassword($hashedPassword);
-            $user->setRoles(['ROLE_USER']);
+        if ($form->isSubmitted()) {
+            if (!$form->isValid()) {
+                $errors = [];
+                foreach ($form->getErrors(true) as $error) {
+                    $errors[] = $error->getMessage();
+                }
+                $this->addFlash('error', 'Erreurs de validation : ' . implode(', ', $errors));
+            } else {
+                $hashedPassword = $this->passwordHasher->hashPassword(
+                    $user,
+                    $form->get('password')->getData()
+                );
+                $user->setPassword($hashedPassword);
+                $user->setRoles(['ROLE_USER']);
 
-            $this->entityManager->persist($user);
-            $this->entityManager->flush();
+                $this->entityManager->persist($user);
+                $this->entityManager->flush();
 
-            $this->addFlash('success', 'Votre compte a été créé avec succès !');
-            return $this->redirectToRoute('app_login');
+                $this->addFlash('success', 'Votre compte a été créé avec succès !');
+                return $this->redirectToRoute('app_login');
+            }
         }
 
         return $this->render('signup/index.html.twig', [
